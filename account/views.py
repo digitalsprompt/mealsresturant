@@ -16,7 +16,7 @@ def signup(request):
             if user:
                 login(request, user)
                 messages.success(request, 'Signup successful!')
-                return redirect('login')
+                return redirect('index')
     else:
         form = SignupForm()
         messages.error(request, 'Signup failed. Please correct the errors below.')
