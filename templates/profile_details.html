@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}Profile Details{% endblock%}
+
+{% block content%}
+<div class="profile-page">
+<header class="hero">
+    <h2>{{user.username}} Profile</h2>
+    <p>View and manage your profile details</p>
+    <button class="update-btn"><a href="{% url 'profile_update' %}">Update Profile</a></button>
+</header>
+<div class="profile-wrapper">
+    <div class="profile-left">
+        {% if user.profile.image %}
+            <img src="{{user.profile.image.url}}" alt="Profile Image" class="profile-image">
+        {% else %}
+            <img src="{% static 'avater.jpg' %}" alt="Default Profile Image" class="profile-image">
+        {% endif %}
+    </div>
+
+    <main class="profile-container">
+        <div class="profile-card">
+            <h3>{{user.username}}</h3>
+            <p><strong>Email:</strong> {{user.email}}</p>
+            <p><strong>Phone:</strong> {{user.profile.phone}}</p>
+            <p><strong>Address:</strong> {{user.profile.address}}</p>
+        </div>
+    </main>
+</div>
+
+{% endblock %}

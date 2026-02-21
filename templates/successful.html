@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Payment Successful{% endblock %}
+
+{% block content %}
+
+    <div class="success-container">
+        <lord-icon
+            src="https://cdn.lordicon.com/fsstjlds.json"
+            trigger="hover"
+            style="width:250px;height:250px">
+        </lord-icon>
+
+        <h1>Payment Successful!</h1>
+        <p>Order ID: {{ order.id }}</p>
+        <p>Thank you for your payment. Your order has been successfully processed.</p>
+        <p>Total Amount Paid: &#8358;{{ order.total_amount }}</p>
+        <a href="{% url 'index' %}">Return to Home</a>
+
+    </div>
+    
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<header class="hero">
+    <h2>Our Menu</h2>
+    <p>Freshly prepared dishes, just for you.</p>
+  </header>
+
+  <main class="food-container">
+    {% if fooditem and fooditem.exists %}
+    {% for fooditem in fooditem %}
+    <div class="food-card">
+      <img src="{{fooditem.image.url}}" alt="Pancakes">
+      <h3>{{fooditem.name}}</h3>
+      <p>{{fooditem.description}}</p>
+      <span class="price">{{fooditem.price}}</span>
+      <br>
+      <a href="{% url 'add_to_cart' fooditem.id %}" class="btn">Add to Cart</a>
+    </div>
+    
+    {% endfor %}
+    {% else %}
+    <p>No food items is available in this category</p>
+    {% endif %}
+  </main>
+
+    {% endblock %}

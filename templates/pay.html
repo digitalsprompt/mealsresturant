@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="pay-page">
+    <header class="pay-header">
+        <h2>Complete Payment</h2>
+        <p>Order ID: {{ order_id }} — Total: ₦{{ order.total_amount }}</p>
+    </header>
+
+    <div class="pay-grid">
+        <section class="pay-card">
+            <h3>Payment</h3>
+            <p class="pay-note">We use Paystack to securely process payments.</p>
+
+            <div class="payment-methods">
+                <label class="pm-option">
+                    <input type="radio" name="pm" checked>
+                    <span>Pay with Paystack (Card, USSD, Bank transfers)</span>
+                </label>
+            </div>
+
+            <div class="pay-actions">
+                <button id="payBTN" class="checkout-btn">Pay Now — ₦{{ order.total_amount }}</button>
+            </div>
+        </section>
+
+        <aside class="pay-summary">
+            <div class="summary-card">
+                <h3>Order Summary</h3>
+                <p><strong>Order:</strong> #{{ order_id }}</p>
+                <p><strong>Total:</strong> ₦{{ order.total_amount }}</p>
+                <p class="summary-note">You will be redirected to Paystack to complete payment.</p>
+            </div>
+        </aside>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="https://js.paystack.co/v1/inline.js"></script>
+
+<script>
+document.getElementById('payBTN').addEventListener('click', function () {
+        var handler = PaystackPop.setup({
+                key: '{{ paystack_public_key }}',
+                email: "{{ email|escapejs }}",
+                amount: {{ amount }},
+                currency: "NGN",
+                ref: "{{ order.reference }}",
+                callback: function(response){
+                        window.location.href = "{% url 'verify' %}?reference=" + response.reference;
+                },
+                onclose: function(){
+                        alert('Payment window closed.');
+                }
+        });
+        handler.openIframe();
+});
+</script>
+{% endblock %}

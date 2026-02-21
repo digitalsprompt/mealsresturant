@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="checkout-page">
+    <header class="checkout-header">
+        <h2>Checkout</h2>
+        <p>Enter your details and confirm your order</p>
+    </header>
+
+    <div class="checkout-grid">
+        <section class="checkout-form-card">
+            <form method="post" action="{% url 'create_order'%}" class="checkout-form">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="checkout-btn">Place Order</button>
+            </form>
+        </section>
+
+        <aside class="order-summary-card">
+            <h3>Order Summary</h3>
+            <ul class="summary-list">
+                {% for item in cart_items %}
+                <li class="summary-item">
+                    <span class="summary-name">{{ item.food_item.name }}</span>
+                    <span class="summary-qty">x{{ item.quantity }}</span>
+                    <span class="summary-price">&#8358;{{ item.food_item.price|floatformat:2 }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <p class="summary-total">Total: <strong>&#8358;{{ total|floatformat:2 }}</strong></p>
+            <p class="summary-note">Taxes and delivery calculated at checkout.</p>
+        </aside>
+    </div>
+</div>
+
+{% endblock %}

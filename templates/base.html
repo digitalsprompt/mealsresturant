@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Categories</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+      <div class="logo">
+        <h1 class="logo"><a href="{% url 'index' %}">🍴 My Restaurant</a></h1>
+      </div>
+    <ul>
+      {%if user.is_authenticated%}
+      <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="#">Hello {{user.username}}</a></li>
+      <li><a href="{% url 'profile_details' %}">View Profile</a></li>
+    </ul>
+      <div class="actions">
+        <li><a href="{% url 'view_cart' %}">Cart</a><lord-icon
+          src="https://cdn.lordicon.com/uisoczqi.json"
+          trigger="hover"
+          style="width:30px;height:30px;">
+        </lord-icon></li>
+        <li><a href="{% url 'logout' %}">Logout</a></li>
+      </div>
+      <ul>
+      {% else %}
+      <li><a href="{% url 'signup'%}">Sign Up</a></li>
+      <li><a href="{% url 'login'%}">Login</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    {% endfor %}
+  {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+</html>
+
