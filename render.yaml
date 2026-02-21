@@ -10,13 +10,17 @@ services:
     name: resturant
     runtime: python
     buildCommand: './build.sh'
-    startCommand: 'python -m gunicorn resturant.asgi:application -k uvicorn.workers.UvicornWorker' 
+    startCommand: 'python -m gunicorn resturant.asgi:application -k uvicorn.workers.UvicornWorker'
+    static:
+      - name: static
+        path: /static
+        source: staticfiles
     # envVars:
     # - key: DATABASE_URL
-    # fromDatabase:
-    # name: mysitedb
-    # property: connectionString
+    #   fromDatabase:
+    #     name: mysitedb
+    #     property: connectionString
     # - key: SECRET_KEY
-    # generateValue: true
+    #   generateValue: true
     # - key: WEB_CONCURRENCY
-    # value: 4
+    #   value: 4
