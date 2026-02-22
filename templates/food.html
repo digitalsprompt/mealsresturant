@@ -13,7 +13,7 @@
     {% if fooditem and fooditem.exists %}
     {% for fooditem in fooditem %}
     <div class="food-card">
-      <img src="{{fooditem.image.url}}" alt="Pancakes">
+      <img src="{{fooditem.image.url}}" alt="Pancakes" loading="lazy">
       <h3>{{fooditem.name}}</h3>
       <p>{{fooditem.description}}</p>
       <span class="price">{{fooditem.price}}</span>

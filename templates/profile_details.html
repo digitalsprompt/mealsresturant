@@ -12,9 +12,9 @@
 <div class="profile-wrapper">
     <div class="profile-left">
         {% if user.profile.image %}
-            <img src="{{user.profile.image.url}}" alt="Profile Image" class="profile-image">
+            <img src="{{user.profile.image.url}}" alt="Profile Image" class="profile-image" loading="lazy">
         {% else %}
-            <img src="{% static 'avater.jpg' %}" alt="Default Profile Image" class="profile-image">
+            <img src="{% static 'avater.jpg' %}" alt="Default Profile Image" class="profile-image" loading="lazy">
         {% endif %}
     </div>
 
