@@ -1,3 +1,16 @@
+:root {
+  --tiger-flame: #f46036ff;
+  --space-indigo: #2e294eff;
+  --verdigris: #1b998bff;
+  --tiger-flame-rgb: 244, 96, 54;
+  --space-indigo-rgb: 46, 41, 78;
+  --verdigris-rgb: 27, 153, 139;
+  --page-bg: #eef7f5;
+  --text-color: var(--space-indigo);
+  --muted-text: #5f6478;
+  --surface: #ffffff;
+  --border-soft: rgba(var(--space-indigo-rgb), 0.14);
+}
 /* Reset */
 * {
   margin: 0;
@@ -7,8 +20,11 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #D6E9F1;
-  color: #133B49;
+  background: var(--page-bg);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Navbar */
@@ -16,7 +32,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #B5B95D;
+  background: var(--space-indigo);
   color: white;
   padding: 0.8rem 2rem;
   font-family: 'Segoe UI', sans-serif;
@@ -58,7 +74,7 @@ body {
 }
 
 .navbar .nav-links a.active {
-  color: #F7C93C;
+  color: var(--tiger-flame);
 }
 
 .navbar .nav-links .actions {
@@ -113,7 +129,7 @@ body {
     top: 100%;
     left: 0;
     width: 100%;
-    background: #B5B95D;
+    background: var(--space-indigo);
     flex-direction: column;
     align-items: flex-start;
     gap: 0;
@@ -141,18 +157,18 @@ body {
 .hero {
   text-align: center;
   padding: 3rem 2rem;
-  background: #D6E9F1;
+  background: var(--page-bg);
 }
 
 .hero h2 {
   font-size: 2.5rem;
-  color: #B5B95D;
+  color: var(--space-indigo);
 }
 
 .hero p {
   margin-top: 0.5rem;
   font-size: 1.1rem;
-  color: #133B49;
+  color: var(--text-color);
 }
 
 /* Category Cards */
@@ -180,7 +196,7 @@ body {
 }
 
 .category-card h3 {
-  color: #0C180A;
+  color: var(--space-indigo);
   margin-bottom: 0.5rem;
 }
 
@@ -191,7 +207,7 @@ body {
 
 .category-card .date {
   font-size: 0.8rem;
-  color: #777;
+  color: var(--muted-text);
   display: block;
   margin-bottom: 1rem;
 }
@@ -199,7 +215,7 @@ body {
 .btn {
   display: inline-block;
   padding: 0.5rem 1rem;
-  background: #B5B95D;
+  background: var(--space-indigo);
   color: white;
   text-decoration: none;
   border-radius: 6px;
@@ -207,7 +223,7 @@ body {
 }
 
 .btn:hover {
-  background: #2E7D9A;
+  background: var(--verdigris);
 }
 
 /* Food Cards */
@@ -243,7 +259,7 @@ body {
 }
 
 .food-card h3 {
-  color: #B5B95D;
+  color: var(--space-indigo);
   margin-bottom: 0.5rem;
 }
 
@@ -254,7 +270,7 @@ body {
 
 .price {
   font-weight: bold;
-  color: #F7C93C;
+  color: var(--tiger-flame);
   font-size: 1.1rem;
 }
 
@@ -265,7 +281,7 @@ body {
   align-items: center;
   min-height: 70vh;
   padding: 2rem;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, rgba(var(--verdigris-rgb), 0.10) 0%, rgba(var(--space-indigo-rgb), 0.16) 100%);
 }
 
 .login-box {
@@ -279,7 +295,7 @@ body {
 }
 
 .login-box h1 {
-  color: #B5B95D;
+  color: var(--space-indigo);
   margin-bottom: 1.5rem;
   font-size: 2rem;
   font-weight: 700;
@@ -295,7 +311,7 @@ body {
 .login-input {
   width: 100%;
   padding: 0.9rem 1rem;
-  border: 2px solid #e0e0e0;
+  border: 2px solid rgba(var(--space-indigo-rgb), 0.18);
   border-radius: 8px;
   font-size: 1rem;
   font-family: inherit;
@@ -305,18 +321,18 @@ body {
 
 .login-input:focus {
   outline: none;
-  border-color: #B5B95D;
+  border-color: var(--space-indigo);
   box-shadow: 0 0 0 4px rgba(181, 185, 93, 0.1);
 }
 
 .login-input::placeholder {
-  color: #999;
+  color: rgba(var(--space-indigo-rgb), 0.55);
 }
 
 .login-btn {
   width: 100%;
   padding: 0.9rem;
-  background: #B5B95D;
+  background: var(--space-indigo);
   color: white;
   border: none;
   border-radius: 8px;
@@ -336,20 +352,20 @@ body {
 }
 
 .login-footer {
-  color: #666;
+  color: var(--muted-text);
   margin: 0;
   font-size: 0.95rem;
 }
 
 .login-footer a {
-  color: #B5B95D;
+  color: var(--space-indigo);
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .login-footer a:hover {
-  color: #133B49;
+  color: var(--text-color);
   text-decoration: underline;
 }
 
@@ -361,7 +377,7 @@ body {
   align-items: center;
   min-height: 70vh;
   padding: 2rem;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background: linear-gradient(135deg, rgba(var(--verdigris-rgb), 0.10) 0%, rgba(var(--space-indigo-rgb), 0.16) 100%);
 }
 
 .signup-box {
@@ -375,14 +391,14 @@ body {
 }
 
 .signup-box h1 {
-  color: #F89B34;
+  color: var(--space-indigo);
   margin-bottom: 0.5rem;
   font-size: 2rem;
   font-weight: 700;
 }
 
 .signup-subtitle {
-  color: #666;
+  color: var(--muted-text);
   font-size: 0.95rem;
   margin-bottom: 2rem;
 }
@@ -403,7 +419,7 @@ body {
 
 .form-label {
   font-weight: 600;
-  color: #333;
+  color: var(--space-indigo);
   font-size: 0.95rem;
 }
 
@@ -414,7 +430,7 @@ body {
 .signup-form select {
   width: 100%;
   padding: 0.9rem 1rem;
-  border: 2px solid #e0e0e0;
+  border: 2px solid rgba(var(--space-indigo-rgb), 0.18);
   border-radius: 8px;
   font-size: 1rem;
   font-family: inherit;
@@ -428,12 +444,12 @@ body {
 .signup-form textarea:focus,
 .signup-form select:focus {
   outline: none;
-  border-color: #F89B34;
+  border-color: var(--tiger-flame);
   box-shadow: 0 0 0 4px rgba(248, 155, 52, 0.1);
 }
 
 .signup-form input::placeholder {
-  color: #999;
+  color: rgba(var(--space-indigo-rgb), 0.55);
 }
 
 .form-errors {
@@ -449,7 +465,7 @@ body {
 }
 
 .form-text {
-  color: #999;
+  color: rgba(var(--space-indigo-rgb), 0.55);
   font-size: 0.85rem;
 }
 
@@ -463,19 +479,19 @@ body {
   width: 18px;
   height: 18px;
   cursor: pointer;
-  accent-color: #F89B34;
+  accent-color: var(--tiger-flame);
 }
 
 .checkbox-label {
   cursor: pointer;
-  color: #666;
+  color: var(--muted-text);
   font-size: 0.95rem;
 }
 
 .signup-btn {
   width: 100%;
   padding: 0.9rem;
-  background: #F89B34;
+  background: var(--tiger-flame);
   color: white;
   border: none;
   border-radius: 8px;
@@ -495,20 +511,20 @@ body {
 }
 
 .signup-footer {
-  color: #666;
+  color: var(--muted-text);
   margin: 0;
   font-size: 0.95rem;
 }
 
 .signup-footer a {
-  color: #F89B34;
+  color: var(--space-indigo);
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
 .signup-footer a:hover {
-  color: #0C180A;
+  color: var(--text-color);
   text-decoration: underline;
 }
 
@@ -553,7 +569,7 @@ padding: 10px;
 }
 
 .update-btn {
-  background: #B5B95D;
+  background: var(--space-indigo);
   color: #fff;
   border: none;
   padding: 0.6rem 1rem;
@@ -581,12 +597,12 @@ padding: 10px;
 }
 
 .profile-card h3 {
-  color: #B5B95D;
+  color: var(--space-indigo);
   margin-bottom: 0.5rem;
 }
 
 .profile-card p {
-  color: #444;
+  color: var(--text-color);
   margin: 0.6rem 0;
 }
 
@@ -640,7 +656,7 @@ padding: 10px;
 .profile-card .profile-update-form select {
   width: 100%;
   padding: 0.9rem 1rem;
-  border: 2px solid #e0e0e0;
+  border: 2px solid rgba(var(--space-indigo-rgb), 0.18);
   border-radius: 8px;
   font-size: 1rem;
   font-family: inherit;
@@ -652,7 +668,7 @@ padding: 10px;
 .profile-card .profile-update-form textarea:focus,
 .profile-card .profile-update-form select:focus {
   outline: none;
-  border-color: #F89B34;
+  border-color: var(--tiger-flame);
   box-shadow: 0 0 0 6px rgba(248, 155, 52, 0.06);
 }
 
@@ -672,7 +688,7 @@ padding: 10px;
 
 .profile-card .profile-update-form p label {
   font-weight: 600;
-  color: #333;
+  color: var(--space-indigo);
   font-size: 0.95rem;
 }
 
@@ -680,7 +696,7 @@ padding: 10px;
 .profile-card .profile-update-form .update-btn {
   width: 100%;
   padding: 0.9rem 1rem;
-  background: #F89B34;
+  background: var(--tiger-flame);
   color: white;
   border: none;
   border-radius: 8px;
@@ -720,12 +736,12 @@ padding: 10px;
 }
 
 .checkout-header h2 {
-  color: #F89B34;
+  color: var(--tiger-flame);
   margin-bottom: 0.25rem;
 }
 
 .checkout-header p {
-  color: #666;
+  color: var(--muted-text);
   margin-bottom: 1rem;
 }
 
@@ -756,20 +772,20 @@ padding: 10px;
 .checkout-form select {
   width: 100%;
   padding: 0.9rem 1rem;
-  border: 2px solid #e0e0e0;
+  border: 2px solid rgba(var(--space-indigo-rgb), 0.18);
   border-radius: 8px;
 }
 
 .checkout-form input:focus,
 .checkout-form textarea:focus,
 .checkout-form select:focus {
-  border-color: #F89B34;
+  border-color: var(--tiger-flame);
   box-shadow: 0 0 0 6px rgba(248, 155, 52, 0.06);
   outline: none;
 }
 
 .checkout-btn {
-  background: #F89B34;
+  background: var(--tiger-flame);
   color: white;
   border: none;
   padding: 0.95rem 1rem;
@@ -794,12 +810,12 @@ padding: 10px;
   align-items: center;
 }
 
-.summary-name { color: #333; }
-.summary-qty { color: #666; font-size: 0.95rem; }
-.summary-price { font-weight: 600; color: #0C180A; }
+.summary-name { color: var(--space-indigo); }
+.summary-qty { color: var(--muted-text); font-size: 0.95rem; }
+.summary-price { font-weight: 600; color: var(--space-indigo); }
 
 .summary-total { font-size: 1.1rem; margin-top: 1rem; }
-.summary-note { color: #777; font-size: 0.9rem; margin-top: 0.5rem; }
+.summary-note { color: var(--muted-text); font-size: 0.9rem; margin-top: 0.5rem; }
 
 @media (max-width: 900px) {
   .checkout-grid { grid-template-columns: 1fr; }
@@ -811,8 +827,8 @@ padding: 10px;
   padding: 2rem;
 }
 
-.pay-header h2 { color: #B5B95D; margin-bottom: 0.25rem; }
-.pay-header p { color: #666; margin-bottom: 1rem; }
+.pay-header h2 { color: var(--space-indigo); margin-bottom: 0.25rem; }
+.pay-header p { color: var(--muted-text); margin-bottom: 1rem; }
 
 .pay-grid {
   display: grid;
@@ -827,8 +843,8 @@ padding: 10px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
 
-.pay-card h3 { margin-top: 0; color: #B5B95D; }
-.pay-note { color: #666; margin-bottom: 1rem; }
+.pay-card h3 { margin-top: 0; color: var(--space-indigo); }
+.pay-note { color: var(--muted-text); margin-bottom: 1rem; }
 
 .payment-methods { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1rem; }
 .pm-option { display: flex; gap: 0.6rem; align-items: center; }
@@ -837,7 +853,7 @@ padding: 10px;
 .pay-actions { margin-top: 0.5rem; }
 
 .pay-summary .summary-card { padding: 1rem; }
-.pay-summary .summary-note { color: #777; font-size: 0.9rem; margin-top: 0.5rem; }
+.pay-summary .summary-note { color: var(--muted-text); font-size: 0.9rem; margin-top: 0.5rem; }
 
 @media (max-width: 900px) {
   .pay-grid { grid-template-columns: 1fr; }
@@ -849,7 +865,7 @@ padding: 10px;
 }
 
 .cart-header h2 {
-  color: #F89B34;
+  color: var(--tiger-flame);
   margin-bottom: 1rem;
 }
 
@@ -884,12 +900,12 @@ padding: 10px;
 
 .item-name {
   font-size: 1.05rem;
-  color: #333;
+  color: var(--space-indigo);
   margin: 0;
 }
 
 .item-meta {
-  color: #666;
+  color: var(--muted-text);
   font-size: 0.9rem;
 }
 
@@ -902,7 +918,7 @@ padding: 10px;
 
 .item-total {
   font-weight: 700;
-  color: #F7C93C;
+  color: var(--tiger-flame);
 }
 
 .remove-btn {
@@ -927,7 +943,7 @@ padding: 10px;
 
 .summary-card h3 {
   margin-top: 0;
-  color: #B5B95D;
+  color: var(--space-indigo);
 }
 
 .summary-row {
@@ -938,7 +954,7 @@ padding: 10px;
 }
 
 .summary-note {
-  color: #777;
+  color: var(--muted-text);
   font-size: 0.9rem;
   margin-bottom: 1rem;
 }
@@ -947,7 +963,7 @@ padding: 10px;
   display: inline-block;
   width: 100%;
   text-align: center;
-  background: #F89B34;
+  background: var(--tiger-flame);
   color: white;
   padding: 0.9rem 1rem;
   border-radius: 8px;
@@ -963,3 +979,139 @@ padding: 10px;
     order: 2;
   }
 }
+
+/* Brand polish */
+body {
+  background: radial-gradient(circle at top right, rgba(var(--verdigris-rgb), 0.12), transparent 42%),
+              radial-gradient(circle at top left, rgba(var(--tiger-flame-rgb), 0.10), transparent 45%),
+              var(--page-bg);
+  color: var(--text-color);
+}
+
+.navbar {
+  background: linear-gradient(100deg, var(--space-indigo), var(--verdigris));
+}
+
+.navbar .nav-links a:hover {
+  color: var(--tiger-flame);
+}
+
+.hero h2,
+.food-card h3,
+.profile-card h3,
+.summary-card h3,
+.checkout-header h2,
+.cart-header h2,
+.pay-header h2 {
+  color: var(--space-indigo);
+}
+
+.category-card,
+.food-card,
+.login-box,
+.signup-box,
+.profile-card,
+.checkout-form-card,
+.order-summary-card,
+.pay-card,
+.pay-summary .summary-card,
+.cart-item,
+.cart-summary .summary-card {
+  border: 1px solid var(--border-soft);
+}
+
+.btn,
+.login-btn,
+.signup-btn,
+.update-btn,
+.checkout-btn,
+.profile-card .update-btn,
+.profile-card .profile-update-form .update-btn {
+  background: var(--tiger-flame);
+  color: #fff;
+}
+
+.btn:hover,
+.login-btn:hover,
+.signup-btn:hover,
+.update-btn:hover,
+.checkout-btn:hover,
+.profile-card .update-btn:hover,
+.profile-card .profile-update-form .update-btn:hover {
+  background: var(--verdigris);
+  box-shadow: 0 10px 24px rgba(var(--verdigris-rgb), 0.28);
+}
+
+.login-input:focus,
+.signup-form input[type="text"]:focus,
+.signup-form input[type="email"]:focus,
+.signup-form input[type="password"]:focus,
+.signup-form textarea:focus,
+.signup-form select:focus,
+.profile-card .profile-update-form input:focus,
+.profile-card .profile-update-form textarea:focus,
+.profile-card .profile-update-form select:focus,
+.checkout-form input:focus,
+.checkout-form textarea:focus,
+.checkout-form select:focus {
+  border-color: var(--verdigris);
+  box-shadow: 0 0 0 4px rgba(var(--verdigris-rgb), 0.14);
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  background: linear-gradient(110deg, var(--space-indigo), rgba(var(--verdigris-rgb), 0.95));
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.2rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.86rem;
+  font-weight: 600;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.social-link:hover {
+  background: var(--tiger-flame);
+  border-color: var(--tiger-flame);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+  .footer .container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+

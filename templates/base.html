@@ -51,9 +51,22 @@
 
     {% block scripts %}
 
-    <script src="{% static 'script.js' %}"></script>
+    
     {% endblock %}
-
+   <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; {% now "Y" %} My Restaurant. Crafted by Oluwafemi.</p>
+            <div class="social-links">
+                <a href="#" class="social-link">GitHub</a>
+                <a href="#" class="social-link">LinkedIn</a>
+                <a href="#" class="social-link">Twitter</a>
+                <a href="#" class="social-link">Email</a>
+            </div>
+        </div>
+    </footer>
+    
+<script src="{% static 'script.js' %}"></script>
 </body>
 </html>
 
