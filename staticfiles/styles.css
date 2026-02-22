@@ -12,57 +12,18 @@ body {
 }
 
 /* Navbar */
-/* .navbar {
-  background: linear-gradient(90deg, #e63946, #f77f00);
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-  text-decoration: none;
-}
-
-.navbar h1 a {
-  text-decoration: none;
-  color: white;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #ffe8d6;
-} */
-
-/* Navbar container */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #B5B95D; /* new color */
+  background: #B5B95D;
   color: white;
   padding: 0.8rem 2rem;
   font-family: 'Segoe UI', sans-serif;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  position: relative;
 }
 
-/* Logo + brand name */
 .navbar .logo {
   display: flex;
   align-items: center;
@@ -76,89 +37,103 @@ body {
   text-decoration: none;
 }
 
-/* Navigation links (support both .nav-links and bare ul markup) */
-.navbar .nav-links,
-.navbar ul {
+.navbar .nav-links {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 1.5rem;
   margin: 0;
   padding: 0;
 }
 
-.navbar .nav-links a,
-.navbar ul li a,
-.nav-links a {
+.navbar .nav-links a {
   text-decoration: none;
   color: #fff;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
-/* Highlight active page */
-.navbar .nav-links a.active,
-.navbar ul li a.active,
-.nav-links a.active {
-  color: #F7C93C; /* yellow highlight */
+.navbar .nav-links a:hover {
+  color: #ffe8d6;
 }
 
-/* Hover effect */
-.navbar .nav-links a:hover,
-.navbar ul li a:hover,
-.nav-links a:hover {
-  color: #ffe8d6; /* lighter highlight */
+.navbar .nav-links a.active {
+  color: #F7C93C;
 }
 
-/* Right side (cart + login) */
-.navbar .actions {
+.navbar .nav-links .actions {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.35rem;
 }
 
-/* Remove default list markers for actions and their list items */
-.navbar .actions {
-  list-style: none;
-}
-
-.navbar .actions li {
-  list-style: none;
-}
-
-.navbar .cart-icon {
-  font-size: 1.2rem;
+.navbar .actions a {
   color: #fff;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
 }
 
-.navbar .login-btn {
-  background-color: #F7C93C; /* yellow button */
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.15s ease;
+.hamburger span {
+  height: 4px;
+  width: 24px;
+  background: #fff;
+  margin: 3px 0;
+  border-radius: 2px;
+  transition: 0.3s ease;
 }
 
-.navbar .login-btn:hover {
-  background-color: #d4a000; /* darker yellow on hover */
-  transform: translateY(-2px);
+.hamburger.toggle span:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
 }
 
-/* Ensure actions links are white and have no text decoration */
-.navbar .actions a,
-.navbar .actions li a,
-.navbar .actions {
-  color: #fff;
-  font-weight: 500;
-  transition: color 0.3s ease;
+.hamburger.toggle span:nth-child(2) {
+  opacity: 0;
 }
 
-.navbar .actions a,
-.navbar .actions li a {
-  text-decoration: none;
+.hamburger.toggle span:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #B5B95D;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    z-index: 1000;
+  }
+
+  .navbar .nav-links.nav-active {
+    display: flex;
+  }
+
+  .navbar .nav-links li {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .navbar .nav-links li:last-child {
+    border-bottom: none;
+  }
 }
 
 
