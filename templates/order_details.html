@@ -1,13 +1,36 @@
 {% extends 'base.html' %}
+{% block title %}Order Details{% endblock %}
+
 {% block content %}
-    <h1>Order Details</h1>
+<section class="detail-page">
+    <div class="detail-card">
+        <p class="detail-kicker">Order #{{ order.id }}</p>
+        <h1>Order Details</h1>
 
-    <p>Order ID: {{ order.id }}</p>
-    
-    <p>Full Name: {{ order.fullname }}</p>
-    <p>Phone Number: {{ order.phone }}</p>
-    <p>Address: {{ order.address }}</p>
-    <p>Status: {{ order.status }}</p>
-    <p>Total Amount: ${{ order.total_amount|floatformat:2 }}</p>
+        <dl class="detail-list">
+            <div>
+                <dt>Name</dt>
+                <dd>{{ order.name }}</dd>
+            </div>
+            <div>
+                <dt>Phone Number</dt>
+                <dd>{{ order.phone }}</dd>
+            </div>
+            <div>
+                <dt>Address</dt>
+                <dd>{{ order.address }}</dd>
+            </div>
+            <div>
+                <dt>Status</dt>
+                <dd>{{ order.status }}</dd>
+            </div>
+            <div>
+                <dt>Total Amount</dt>
+                <dd>{{ order.total_amount|floatformat:2 }}</dd>
+            </div>
+        </dl>
 
+        <a href="{% url 'index' %}" class="btn">Back to Home</a>
+    </div>
+</section>
 {% endblock %}

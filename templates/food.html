@@ -4,27 +4,49 @@
 
 {% block content %}
 
-<header class="hero">
-    <h2>Our Menu</h2>
-    <p>Freshly prepared dishes, just for you.</p>
+<section class="food-page">
+  <header class="hero food-hero">
+    <div>
+      <h2>Our Menu</h2>
+      <p>Freshly prepared dishes, just for you.</p>
+    </div>
+    <button class="mode-switch" type="button" title="Switch Theme" aria-label="Switch Theme">
+      <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+      </svg>
+    </button>
   </header>
 
   <main class="food-container">
     {% if fooditem and fooditem.exists %}
     {% for fooditem in fooditem %}
-    <div class="food-card">
-      <img src="{{fooditem.image.url}}" alt="Pancakes" loading="lazy">
-      <h3>{{fooditem.name}}</h3>
-      <p>{{fooditem.description}}</p>
-      <span class="price">{{fooditem.price}}</span>
-      <br>
-      <a href="{% url 'add_to_cart' fooditem.id %}" class="btn">Add to Cart</a>
-    </div>
-    
+    <article class="food-card {% cycle 'flavor-green' 'flavor-blue' 'flavor-red' %}">
+      <span class="food-card-word food-card-word-top">TASTE</span>
+      <span class="food-card-word food-card-word-bottom">FRESH</span>
+      <h3 class="food-name">{{ fooditem.name }}</h3>
+      <div class="food-glow"></div>
+      {% if fooditem.image %}
+      <img src="{{ fooditem.image.url }}" alt="{{ fooditem.name }}" loading="lazy" class="food-product">
+      {% else %}
+      <img src="{% static 'background.jpg' %}" alt="{{ fooditem.name }}" loading="lazy" class="food-product">
+      {% endif %}
+      <div class="food-copy">
+        <p>{{ fooditem.description }}</p>
+        <div class="food-meta">
+          <span class="price">{{ fooditem.price }}</span>
+          <a href="{% url 'add_to_cart' fooditem.id %}" class="btn buy-btn">Add to Cart</a>
+        </div>
+      </div>
+    </article>
     {% endfor %}
     {% else %}
-    <p>No food items is available in this category</p>
+    <p class="food-empty">No food items is available in this category</p>
     {% endif %}
   </main>
+</section>
+{% endblock %}
 
-    {% endblock %}
+{% block scripts %}
+  {{ block.super }}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+{% endblock %}

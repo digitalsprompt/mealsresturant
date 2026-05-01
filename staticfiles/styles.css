@@ -314,6 +314,298 @@ body {
   font-size: 1.1rem;
 }
 
+/* Food page showcase */
+.food-page {
+  --food-main-bg: #131313;
+  --food-box-bg: #232323;
+  --food-name-color: #f8f8f8;
+  --food-card-text: rgba(255, 255, 255, 0.82);
+  --food-card-bg-text: #ffffff;
+  --food-shadow: 0 28px 50px rgba(8, 8, 12, 0.35);
+  position: relative;
+  padding: 1rem 0 4rem;
+}
+
+.food-page.theme-light {
+  --food-main-bg: #f8f8f8;
+  --food-box-bg: #ffffff;
+  --food-name-color: #232323;
+  --food-card-text: rgba(35, 35, 35, 0.82);
+  --food-card-bg-text: #343434;
+  --food-shadow: 0 24px 44px rgba(31, 35, 58, 0.16);
+}
+
+.food-hero {
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.food-page .food-container {
+  position: relative;
+  width: min(1200px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  transform-style: preserve-3d;
+}
+
+.food-page .food-card {
+  position: relative;
+  width: min(320px, 100%);
+  min-height: 420px;
+  margin: 0;
+  padding: 1.4rem;
+  border-radius: 28px;
+  text-align: left;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--food-shadow);
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  background: radial-gradient(circle at top right, rgba(var(--tiger-flame-rgb), 0.22), var(--food-box-bg) 42%, var(--food-box-bg) 100%);
+}
+
+.food-page .food-card::before {
+  position: absolute;
+  content: "";
+  inset: 0;
+  border-radius: 28px;
+  z-index: -1;
+  border: 2px solid transparent;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+.food-page .food-card:hover {
+  transform: translateY(-10px);
+}
+
+.food-page .food-card:hover .food-card-word,
+.food-page .food-card:hover .food-name,
+.food-page .food-card:hover .buy-btn,
+.food-page .food-card:hover .food-copy,
+.food-page .food-card:hover .food-glow,
+.food-page .food-card:hover .food-product {
+  transform-style: preserve-3d;
+}
+
+.food-name {
+  position: absolute;
+  top: 1.6rem;
+  left: 1.4rem;
+  right: 1.4rem;
+  color: var(--food-name-color);
+  font-size: 1.8rem;
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  z-index: 3;
+  transform: translate3d(0, 0, 70px);
+  transition: 0.5s ease;
+}
+
+.food-page .food-card:hover .food-name {
+  transform: translate3d(0, -0.35rem, 88px);
+}
+
+.food-card-word {
+  position: absolute;
+  font-size: clamp(3.1rem, 10vw, 5.6rem);
+  font-weight: 900;
+  font-style: italic;
+  line-height: 1;
+  color: var(--food-card-bg-text);
+  opacity: 0.04;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.food-card-word-top {
+  top: 1rem;
+  left: 1rem;
+}
+
+.food-card-word-bottom {
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.food-page .food-card:hover .food-card-word {
+  opacity: 0.09;
+}
+
+.food-glow {
+  position: absolute;
+  top: 47%;
+  left: 50%;
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.food-page .food-card:hover .food-glow {
+  transform: translate3d(-50%, -50%, 38px);
+}
+
+.food-product {
+  position: absolute;
+  top: 44%;
+  left: 50%;
+  width: calc(100% - 2rem);
+  max-width: 270px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 22px;
+  z-index: 2;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+  transform: translate3d(-50%, -50%, 10px) rotate(-8deg);
+  transition: transform 0.5s ease;
+}
+
+.food-page .food-card:hover .food-product {
+  transform: translate3d(-50%, -50%, 96px) rotate(-10deg);
+}
+
+.food-copy {
+  position: absolute;
+  left: 1.4rem;
+  right: 1.4rem;
+  bottom: 1.3rem;
+  z-index: 3;
+  color: var(--food-card-text);
+  transform: translate3d(0, 0, 50px);
+  transition: transform 0.5s ease;
+}
+
+.food-page .food-card:hover .food-copy {
+  transform: translate3d(0, -0.2rem, 70px);
+}
+
+.food-copy p {
+  margin: 0 0 1rem;
+  color: var(--food-card-text);
+  font-size: 0.96rem;
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+.food-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+}
+
+.food-page .price {
+  margin: 0;
+  color: var(--food-name-color);
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.buy-btn {
+  padding: 0.78rem 1.25rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  transform: translate3d(0, 0, 78px);
+  transition: transform 0.5s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.food-page .food-card:hover .buy-btn {
+  transform: translate3d(0, -0.15rem, 92px);
+}
+
+.mode-switch {
+  background-color: transparent;
+  border: 1px solid rgba(var(--space-indigo-rgb), 0.14);
+  padding: 0.75rem;
+  color: var(--space-indigo);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.food-page.theme-light .mode-switch {
+  background: rgba(255, 255, 255, 0.84);
+}
+
+.food-page:not(.theme-light) .mode-switch {
+  color: #f8f8f8;
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(19, 19, 19, 0.46);
+}
+
+.mode-switch:hover {
+  transform: translateY(-2px);
+}
+
+.mode-switch.active .moon {
+  fill: currentColor;
+}
+
+.food-empty {
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--muted-text);
+}
+
+.flavor-green {
+  background: radial-gradient(ellipse at right top, #9bdc28ed 0%, var(--food-box-bg) 47%, var(--food-box-bg) 100%);
+}
+
+.flavor-green::before {
+  background: linear-gradient(45deg, var(--food-box-bg), var(--food-box-bg), var(--food-box-bg), #9bdc28) border-box;
+}
+
+.flavor-green .food-glow,
+.flavor-green .buy-btn {
+  background: #9bdc28;
+}
+
+.flavor-blue {
+  background: radial-gradient(ellipse at right top, #1da3c3ed 0%, var(--food-box-bg) 47%, var(--food-box-bg) 100%);
+}
+
+.flavor-blue::before {
+  background: linear-gradient(45deg, var(--food-box-bg), var(--food-box-bg), var(--food-box-bg), #1da3c3) border-box;
+}
+
+.flavor-blue .food-glow,
+.flavor-blue .buy-btn {
+  background: #1da3c3;
+}
+
+.flavor-red {
+  background: radial-gradient(ellipse at right top, #eb0e2fed 0%, var(--food-box-bg) 47%, var(--food-box-bg) 100%);
+}
+
+.flavor-red::before {
+  background: linear-gradient(45deg, var(--food-box-bg), var(--food-box-bg), var(--food-box-bg), #eb0e2f) border-box;
+}
+
+.flavor-red .food-glow,
+.flavor-red .buy-btn {
+  background: #eb0e2f;
+}
+
 /* Login Page */
 .login-container {
   display: flex;
@@ -1011,12 +1303,62 @@ padding: 10px;
 }
 
 @media (max-width: 900px) {
+  .food-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .food-page .food-container {
+    gap: 2rem;
+  }
+
+  .food-page .food-card {
+    min-height: 400px;
+  }
+
+  .food-product {
+    height: 180px;
+  }
+
   .cart-container {
     grid-template-columns: 1fr;
   }
 
   .cart-summary {
     order: 2;
+  }
+}
+
+@media (max-width: 520px) {
+  .food-page {
+    padding-bottom: 3rem;
+  }
+
+  .food-page .food-card {
+    min-height: 390px;
+    padding: 1.15rem;
+  }
+
+  .food-name {
+    left: 1.15rem;
+    right: 1.15rem;
+    font-size: 1.55rem;
+  }
+
+  .food-copy {
+    left: 1.15rem;
+    right: 1.15rem;
+    bottom: 1.15rem;
+  }
+
+  .food-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .buy-btn {
+    width: 100%;
+    text-align: center;
   }
 }
 

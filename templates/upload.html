@@ -1,14 +1,17 @@
-{% extends 'base.html'%}
+{% extends 'base.html' %}
+{% block title %}Upload Food{% endblock %}
 
 {% block content %}
+<section class="form-page">
+    <div class="form-card">
+        <h1>Upload Food</h1>
+        <p>Add a food item to one of your menu categories.</p>
 
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-
-    {{ form.as_p }}
-
-    <button type="submit" class="btn-primary">Upload Food</button>
-</form>
-
-
+        <form method="post" enctype="multipart/form-data" class="app-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn">Upload Food</button>
+        </form>
+    </div>
+</section>
 {% endblock %}
