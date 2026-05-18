@@ -54,7 +54,7 @@ body {
   font-family: 'Segoe UI', sans-serif;
   box-shadow: 0 18px 40px rgba(var(--space-indigo-rgb), 0.08);
   border: 1px solid rgba(255, 255, 255, 0.55);
-  border-radius: 24px;
+  border-radius: 18px;
   position: sticky;
   top: 0.8rem;
   z-index: 1000;
@@ -69,7 +69,7 @@ body {
 .brand-mark {
   width: 48px;
   height: 48px;
-  border-radius: 16px;
+  border-radius: 12px;
   display: grid;
   place-items: center;
   background: linear-gradient(135deg, var(--tiger-flame), var(--verdigris));
@@ -496,13 +496,13 @@ body {
   align-items: center;
   gap: 1.4rem;
   padding: 2rem;
-  border-radius: 40px;
+  border-radius: 18px;
   background: linear-gradient(135deg, var(--tiger-flame), var(--accent-hover));
 }
 
 .index-feature-image-wrap {
   overflow: hidden;
-  border-radius: 999px;
+  border-radius: 16px;
   min-height: 340px;
 }
 
@@ -686,7 +686,7 @@ body {
   gap: 0.85rem;
   background: rgba(255, 255, 255, 0.86);
   padding: 1.5rem;
-  border-radius: 24px;
+  border-radius: 12px;
 }
 
 .index-category-meta {
@@ -824,7 +824,7 @@ body {
   min-height: 420px;
   margin: 0;
   padding: 1.4rem;
-  border-radius: 28px;
+  border-radius: 16px;
   text-align: left;
   overflow: hidden;
   isolation: isolate;
@@ -839,7 +839,7 @@ body {
   position: absolute;
   content: "";
   inset: 0;
-  border-radius: 28px;
+  border-radius: 16px;
   z-index: -1;
   border: 2px solid transparent;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
@@ -928,7 +928,7 @@ body {
   max-width: 270px;
   height: 190px;
   object-fit: cover;
-  border-radius: 22px;
+  border-radius: 12px;
   z-index: 2;
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
   transform: translate3d(-50%, -50%, 10px) rotate(-8deg);
@@ -1029,42 +1029,42 @@ body {
 }
 
 .flavor-green {
-  background: radial-gradient(ellipse at right top, #9bdc28ed 0%, var(--food-box-bg) 47%, var(--food-box-bg) 100%);
+  background: radial-gradient(ellipse at right top, rgba(var(--accent-rgb), 0.78) 0%, var(--food-box-bg) 47%, var(--food-box-bg) 100%);
 }
 
 .flavor-green::before {
-  background: linear-gradient(45deg, var(--food-box-bg), var(--food-box-bg), var(--food-box-bg), #9bdc28) border-box;
+  background: linear-gradient(45deg, var(--food-box-bg), var(--food-box-bg), var(--food-box-bg), var(--accent)) border-box;
 }
 
 .flavor-green .food-glow,
 .flavor-green .buy-btn {
-  background: #9bdc28;
+  background: var(--accent);
 }
 
 .flavor-blue {
-  background: radial-gradient(ellipse at right top, #1da3c3ed 0%, var(--food-box-bg) 47%, var(--food-box-bg) 100%);
+  background: radial-gradient(ellipse at right top, rgba(var(--primary-rgb), 0.72) 0%, var(--food-box-bg) 47%, var(--food-box-bg) 100%);
 }
 
 .flavor-blue::before {
-  background: linear-gradient(45deg, var(--food-box-bg), var(--food-box-bg), var(--food-box-bg), #1da3c3) border-box;
+  background: linear-gradient(45deg, var(--food-box-bg), var(--food-box-bg), var(--food-box-bg), var(--primary)) border-box;
 }
 
 .flavor-blue .food-glow,
 .flavor-blue .buy-btn {
-  background: #1da3c3;
+  background: var(--primary);
 }
 
 .flavor-red {
-  background: radial-gradient(ellipse at right top, #eb0e2fed 0%, var(--food-box-bg) 47%, var(--food-box-bg) 100%);
+  background: radial-gradient(ellipse at right top, rgba(var(--accent-hover-rgb), 0.82) 0%, var(--food-box-bg) 47%, var(--food-box-bg) 100%);
 }
 
 .flavor-red::before {
-  background: linear-gradient(45deg, var(--food-box-bg), var(--food-box-bg), var(--food-box-bg), #eb0e2f) border-box;
+  background: linear-gradient(45deg, var(--food-box-bg), var(--food-box-bg), var(--food-box-bg), var(--accent-hover)) border-box;
 }
 
 .flavor-red .food-glow,
 .flavor-red .buy-btn {
-  background: #eb0e2f;
+  background: var(--accent-hover);
 }
 
 /* Login Page */
@@ -1322,15 +1322,6 @@ body {
   text-decoration: underline;
 }
 
-.center {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-border: 2px solid red;
-padding: 10px;
-}
-
 /* Profile Details Page */
 .profile-page .hero {
   padding-top: 2rem;
@@ -1512,16 +1503,6 @@ padding: 10px;
   .profile-card .update-btn {
     width: 100%;
   }
-}
-
-/* Neutralize legacy .center helper to avoid layout overlap */
-.center {
-  position: static !important;
-  top: auto !important;
-  left: auto !important;
-  transform: none !important;
-  border: none !important;
-  padding: 0 !important;
 }
 
 /* Checkout Page */

@@ -7,8 +7,8 @@
 <section class="food-page">
   <header class="hero food-hero">
     <div>
-      <h2>Our Menu</h2>
-      <p>Freshly prepared dishes, just for you.</p>
+      <h2>{% if category %}{{ category.name }}{% else %}Our Menu{% endif %}</h2>
+      <p>Freshly prepared dishes, ready to add to your order.</p>
     </div>
     <button class="mode-switch" type="button" title="Switch Theme" aria-label="Switch Theme">
       <svg class="moon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="28" height="28" viewBox="0 0 24 24" aria-hidden="true">

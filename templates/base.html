@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Restaurant{% endblock %}</title>
+    <title>{% block title %}Savory Table{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
 </head>
@@ -13,10 +13,10 @@
 
     <nav class="navbar">
       <div class="nav-brand">
-        <a href="{% url 'index' %}" class="brand-mark" aria-label="My Restaurant home">MR</a>
+        <a href="{% url 'index' %}" class="brand-mark" aria-label="Savory Table home">ST</a>
         <div class="brand-copy">
           <p class="brand-kicker">Fresh daily</p>
-          <h1 class="logo"><a href="{% url 'index' %}">My Restaurant</a></h1>
+          <h1 class="logo"><a href="{% url 'index' %}">Savory Table</a></h1>
         </div>
       </div>
       <div class="hamburger" id="hamburger-menu">
@@ -66,9 +66,9 @@
     <footer class="footer">
         <div class="container footer-grid">
             <div class="footer-brand">
-                <p class="footer-kicker">My Restaurant</p>
-                <h2>Good food, warm rooms, and a smoother way to browse the menu.</h2>
-                <p class="footer-copy">&copy; {% now "Y" %} My Restaurant.</p>
+                <p class="footer-kicker">Savory Table</p>
+                <h2>Good food, warm service, and a smoother way to order your next meal.</h2>
+                <p class="footer-copy">&copy; {% now "Y" %} Savory Table.</p>
             </div>
             <div class="footer-links-group">
                 <h3>Explore</h3>
