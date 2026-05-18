@@ -1,14 +1,10 @@
-from django.shortcuts import render
-import json
 import uuid
 from decimal import Decimal
 from django.conf import settings
-from django.http import JsonResponse, HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from order.models import Order
-
-import urllib.request
+import requests
 
 
 # Create your views here.
@@ -53,16 +49,16 @@ def verify(request):
         'Authorization': f'Bearer {settings.PAYSTACK_SECRET_KEY}',}
     url = f'https://api.paystack.co/transaction/verify/{reference}'
     try: 
-        r = request.get(url, headers=headers)
+        r = requests.get(url, headers=headers, timeout=15)
         data = r.json()
         status = data.get('data', {}).get('status')
-        amount = data.get('data', {}).get('amount') / 100  # Convert back to Naira  
+        amount = Decimal(data.get('data', {}).get('amount', 0)) / Decimal('100')  # Convert back to Naira  
         
         order = Order.objects.get(reference=reference)
-        if status == 'Success' and amount == float(order.total_amount):
+        if status == 'success' and amount == order.total_amount:
             order.status = 'Completed'
             order.save()
-            return render(request, 'success.html', {'order': order})
+            return render(request, 'successful.html', {'order': order})
         else:
             order.status = 'Failed'
             order.save()

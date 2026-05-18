@@ -12,7 +12,8 @@ class Order(models.Model):
     address = models.TextField()
     total_amount = models.DecimalField(max_digits=8, decimal_places=2)
     phone = models.CharField(max_length=15)
-    status = models.CharField(max_length=50, choices=[('Pending', 'Pending'), ('Processing', 'Processing'), ('Completed', 'Completed'), ('Cancelled', 'Cancelled')], default='Pending')
+    status = models.CharField(max_length=50, choices=[('Pending', 'Pending'), ('Processing', 'Processing'), ('Completed', 'Completed'), ('Cancelled', 'Cancelled'), ('Failed', 'Failed')], default='Pending')
+    reference = models.CharField(max_length=100, unique=True, null=True, blank=True)
     
     def __str__(self):
         return f"Order of {self.quantity} x {self.food_items.name} by {self.user.username}"
